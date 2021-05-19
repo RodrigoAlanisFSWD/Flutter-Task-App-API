@@ -3,6 +3,7 @@ import express, { Request, Response } from 'express';
 const app = express();
 
 import morgan from 'morgan';
+import Open from './database/mongo';
 
 app.set("port", process.env.PORT || 3000);
 
@@ -14,4 +15,5 @@ app.get("/", (req: Request, res: Response) => {
 
 app.listen(app.get("port"), () => {
     console.log(`http://localhost:${app.get("port")}`);
+    Open()
 })
