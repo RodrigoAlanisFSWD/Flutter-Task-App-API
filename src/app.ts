@@ -18,6 +18,10 @@ import AuthRouter from './routers/authRouter';
 
 app.use("/api/auth", AuthRouter);
 
+import UserRouter from './routers/userRouter';
+
+app.use("/api/user", UserRouter);
+
 app.listen(app.get("port"), () => {
     console.log(`http://localhost:${app.get("port")}`);
     Open()
