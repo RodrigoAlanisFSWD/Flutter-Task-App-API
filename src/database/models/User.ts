@@ -1,7 +1,7 @@
 import { Schema, Model, model, Document } from 'mongoose';
 import bcrypt from 'bcrypt';
 
-interface IUser extends Document {
+export interface UserI extends Document {
     username: string;
     password: string;
     created_at: Date;
@@ -17,10 +17,19 @@ const UserSchema: Schema = new Schema({
         type: String,
         required: true
     },
+    avatar: {
+        type: String
+    },
     tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }],
     created_at: {
         type: Date
     }
 });
+
+UserSchema.pre("save", async function (this: UserI, next: Function) {
+    if (this.isModified("password")) {
+        this.password = await bcrypt.hash(this.password, 5);
+    }
+})
 
 export default model('User', UserSchema);
