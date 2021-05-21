@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 export default async function Open() {
     try {
-        await mongoose.connect('mongodb://localhost:27017/f-tasks', {
+        await mongoose.connect('mongodb://mongo/task-app-flutter', {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
