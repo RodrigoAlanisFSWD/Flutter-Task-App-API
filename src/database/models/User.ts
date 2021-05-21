@@ -21,6 +21,7 @@ const UserSchema: Schema = new Schema({
         type: String
     },
     tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }],
+    categories: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
     created_at: {
         type: Date
     }

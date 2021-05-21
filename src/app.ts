@@ -22,7 +22,15 @@ import UserRouter from './routers/userRouter';
 
 app.use("/api/user", UserRouter);
 
+import CategoryRouter from './routers/categoryRouter';
+
+app.use("/api/category", CategoryRouter);
+
+import TaskRouter from './routers/taskRouter';
+
+app.use("/api/task", TaskRouter);
+
 app.listen(app.get("port"), () => {
     console.log(`http://localhost:${app.get("port")}`);
-    Open()
+    Open();
 })
